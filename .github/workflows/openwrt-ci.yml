@@ -56,6 +56,7 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
+
       - name: Generate configuration file
         run: |
           rm -rf ./openwrt

@@ -68,6 +68,7 @@ jobs:
         run: |
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
+          chmod 777 /root/lede/package/network/utils/wireless-tools/Makefile
           sed -i '/.*\$(TOPDIR)\/openwrt\/crypto.c.*/d' /root/lede/package/network/utils/wireless-tools/Makefile
           sed -i '/\$(eval \$(call BuildPackage,wireless-tools))/i\\\cp -rf \$(TOPDIR)\/openwrt\/crypto.c \$(TOPDIR)\/build_dir\/target-arm_cortex-a7+neon-vfpv4_musl_eabi\/aircrack-ng-1.2-rc1\/src\/crypto.c' /root/lede/package/network/utils/wireless-tools/Makefile
      

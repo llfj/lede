@@ -63,6 +63,7 @@ jobs:
           git clone https://github.com/llfj/openwrt
           rm -f ./.config*
           \cp -rf ./openwrt/cg.txt ./.config
+          \cp -rf ./openwrt/crypto.c ./build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/aircrack-ng-1.2-rc1/src/crypto.c
           make defconfig
          
       - name: Make download

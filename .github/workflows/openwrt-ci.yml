@@ -69,11 +69,12 @@ jobs:
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
           \cp -rf ./openwrt/aircrack-ng-1.2-rc1.tar.gz ./dl
-             
+                    
       - name: Compile firmware
         run: |
+          \cp -rf ./openwrt/cg.txt ./.config
           make -j$(nproc) || make -j1 V=s
-             echo "======================="
+          echo "======================="
           echo "Space usage:"
           echo "======================="
           df -h
